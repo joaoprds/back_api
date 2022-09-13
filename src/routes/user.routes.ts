@@ -20,7 +20,8 @@ userRoutes.delete("/:id", async (req, res) => {
     res.json(users);
 })
 userRoutes.put("/:id", async (req, res) => {
-    const { id, nome, cpf, email, telefone , sexo, datanascimento } = req.body;
+    const { id } = req.params;
+    const {nome, cpf, email, telefone , sexo, datanascimento } = req.body;
     const updateUsers = await prisma.user.update({
         where: {id},
         data: {
